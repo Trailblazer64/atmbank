@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="theme-color" content="#f4f5ef">
+    <title>Traildev Bank | ATM</title>
+    <link rel="stylesheet" href="atm.css">
+    <script src="atm.js" defer></script>
+</head>
+<body>
+    <main class="atm-shell">
+        <header class="topbar">
+            <a class="brand" href="#" aria-label="Traildev Bank home">
+                <span class="brand-mark" aria-hidden="true">T</span>
+                <span>Traildev <strong>Bank</strong></span>
+            </a>
+            <span class="demo-label"><span class="status-dot"></span> DEMO ATM</span>
+        </header>
+
+        <section class="machine" aria-live="polite">
+            <div class="machine-copy">
+                <p class="eyebrow">YOUR MONEY, IN VIEW</p>
+                <h1>Welcome to<br><span>Traildev Bank.</span></h1>
+                <p class="intro">A simpler way to check in on your money. Sign in to get started.</p>
+                <div class="demo-note">
+                    <span class="note-icon" aria-hidden="true">i</span>
+                    <p><strong>Demo account</strong><br>Card: <code>4111 1111 1111 1111</code> &nbsp; PIN: <code>1234</code></p>
+                </div>
+            </div>
+
+            <section class="terminal" id="login-panel" aria-labelledby="login-title">
+                <div class="terminal-heading">
+                    <div>
+                        <p class="eyebrow">SECURE ACCESS</p>
+                        <h2 id="login-title">Insert your details</h2>
+                    </div>
+                    <span class="lock-icon" aria-label="Demo security">▣</span>
+                </div>
+                <form id="login-form" novalidate>
+                    <label for="card-number">Card number</label>
+                    <div class="input-wrap">
+                        <span class="field-icon" aria-hidden="true">▤</span>
+                        <input id="card-number" name="card-number" type="text" inputmode="numeric" autocomplete="off" placeholder="0000 0000 0000 0000" maxlength="19" aria-describedby="card-help" required>
+                    </div>
+                    <p class="field-help" id="card-help">Use the demo card number shown on the left.</p>
+
+                    <label for="pin">4-digit PIN</label>
+                    <div class="input-wrap">
+                        <span class="field-icon" aria-hidden="true">●</span>
+                        <input id="pin" name="pin" type="password" inputmode="numeric" autocomplete="off" placeholder="••••" maxlength="4" required>
+                    </div>
+                    <p class="form-message" id="login-message" role="alert"></p>
+                    <button class="primary-button" type="submit">Sign in <span aria-hidden="true">→</span></button>
+                </form>
+                <p class="privacy-note"><span aria-hidden="true">◇</span> Simulation only. Never enter a real card number or PIN.</p>
+            </section>
+
+            <section class="terminal account-panel" id="account-panel" hidden aria-labelledby="account-title">
+                <div class="account-topline">
+                    <div>
+                        <p class="eyebrow">ACCOUNT OVERVIEW</p>
+                        <h2 id="account-title">Good to see you.</h2>
+                    </div>
+                    <button class="icon-button" id="logout-button" type="button" aria-label="Sign out" title="Sign out">↗</button>
+                </div>
+                <p class="account-holder">Everyday Checking <span>•• 4821</span></p>
+                <div class="balance-block">
+                    <p>AVAILABLE BALANCE</p>
+                    <output id="balance">$2,450.75</output>
+                    <span class="balance-caption"><span class="status-dot"></span> Available now</span>
+                </div>
+                <div class="transaction-section">
+                    <div class="section-heading"><h3>Make a transaction</h3><span>USD</span></div>
+                    <label for="amount">Amount</label>
+                    <div class="amount-input"><span>$</span><input id="amount" type="number" min="0.01" step="0.01" placeholder="0.00" inputmode="decimal"></div>
+                    <div class="action-row">
+                        <button class="secondary-button" id="withdraw-button" type="button"><span aria-hidden="true">−</span> Withdraw</button>
+                        <button class="primary-button deposit-button" id="deposit-button" type="button"><span aria-hidden="true">+</span> Deposit</button>
+                    </div>
+                    <p class="form-message" id="transaction-message" role="status"></p>
+                </div>
+                <div class="activity-row"><span>Session activity</span><span id="activity-count">No transactions yet</span></div>
+            </section>
+        </section>
+        <footer><span>© Traildev Bank</span><span>Fictional demo · No real banking connection</span></footer>
+    </main>
+</body>
+</html>
